@@ -71,13 +71,14 @@ export class HomeComponent implements OnInit {
   notes = NOTES;
   selectedNote: Note = this.notes[0];
 
-  
-
-  onSelect(note:Note): void {
-    this.selectedNote = note;
-    console.log('note',this.selectedNote);
-
-    console.log('this.notes', this.notes);
+  newNoteOpened:boolean = false;
+  noteId:number = 9;
+  newNoteData: Note = {
+    id: 0,
+    title: 'New Note',
+    editedTime: '8:50 PM',
+    editedDate: '17/11/2019',
+    description: 'No additonal text'
   }
 
   constructor(
@@ -90,17 +91,50 @@ export class HomeComponent implements OnInit {
     console.log('selectedNote',this.selectedNote);
   }
 
+  removeCreatedNode() {
+    let that = this;
+    this.notes = this.notes.filter(function(note){
+      return note.id !== that.noteId-1;
+    })
+    this.newNoteOpened = false;
+  }
+
+
+  onSelect(note:Note): void {
+
+    if(this.newNoteOpened) {
+
+      this.removeCreatedNode();
+      
+    } 
+
+    this.selectedNote = note;
+    console.log('note',this.selectedNote);
+
+    console.log('this.notes', this.notes);
+  }
+
   createNote($event:any) {
     console.log('creating new note');
+    this.newNoteOpened = true;
+    this.newNoteData.id = this.noteId++;
+    this.notes.unshift(this.newNoteData);
+    this.selectedNote = this.newNoteData;
+
+    console.log('this.notes', this.notes);
   }
 
   deleteNote() {
     console.log('deleting note');
+
     let that = this;
     this.notes = this.notes.filter(function(note){
       return note.id !== that.selectedNote.id;
     })
 
+    if(this.newNoteOpened) {
+      this.newNoteOpened = false;
+    } 
     //Do sorting here
 
     this.selectedNote = this.notes[0];

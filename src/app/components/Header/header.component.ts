@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 // import { Logger } from '../../../services/logger/logger.service';
 // import { AppConfig } from '../../../app.config';
 
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() createNoteEvent = new EventEmitter<null>();
   @Output() deleteNoteEvent = new EventEmitter<null>();
-
+  @Input() newNoteOpened: boolean;
   constructor() {
 
   }
@@ -25,8 +25,11 @@ export class HeaderComponent implements OnInit {
     this.deleteNoteEvent.emit(null);
   }
   createNote() {
-    this.createNoteEvent.emit(null);
-    
+    if(!this.newNoteOpened) {
+      this.createNoteEvent.emit(null);
+    }
+   
+
   }
 
 }
