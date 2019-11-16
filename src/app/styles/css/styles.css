@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap");
+.custom-nav {
+  background-color: #dedcdd;
+  min-height: 40px;
+  color: white;
+  padding: 0 10px;
+}
+.custom-nav .nav-icon {
+  width: 38px;
+  height: 25px;
+  background-color: white;
+  margin-top: 7px;
+  margin-left: 5px;
+  text-align: center;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+}
+.custom-nav .nav-icon:hover i {
+  color: #4e7afd;
+}
+.custom-nav .nav-icon i {
+  color: #525252;
+  font-size: 14px;
+}
+.custom-nav .nav-icon.sidebar-slide-icon i {
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.custom-nav .notes-search {
+  float: right;
+  margin-top: 6px;
+}
+.custom-nav .notes-search input {
+  height: 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  outline: none;
+  padding: 5px;
+  font-size: 15px;
+  font-family: "Open Sans", "Montserrat", sans-serif !important;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: "Open Sans", "Montserrat", sans-serif !important;
+}
+
+.home-container {
+  height: calc(100vh - 40px);
+  display: flex;
+}
+.home-container .notes-sidebar {
+  flex: 1 1 auto;
+  height: 100%;
+  max-width: 250px;
+}
+.home-container .notes-sidebar ul {
+  height: 100%;
+  overflow-y: scroll;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fbfbf8;
+}
+.home-container .notes-sidebar ul li {
+  padding: 10px 10px 10px 20px;
+  position: relative;
+  cursor: pointer;
+  background-color: #fbfbf8;
+}
+.home-container .notes-sidebar ul li.active {
+  background-color: rgba(255, 177, 62, 0.7882352941);
+}
+.home-container .notes-sidebar ul li.active:after {
+  display: none;
+}
+.home-container .notes-sidebar ul li:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid #dedcdd;
+  width: 100%;
+}
+.home-container .notes-sidebar ul li p {
+  margin: 0;
+}
+.home-container .notes-sidebar ul li .note-item .note-title {
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 15px;
+  margin: 3px 0;
+}
+.home-container .notes-sidebar ul li .note-item .note-additional-content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 13px;
+  margin: 3px 0;
+}
+.home-container .notes-sidebar ul li .note-item .note-additional-content .note-time-stamp {
+  flex: 2;
+  font-weight: 300;
+  margin-right: 5px;
+}
+.home-container .notes-sidebar ul li .note-item .note-additional-content .note-content {
+  flex: 5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #717171;
+}
+.home-container .notes-body {
+  flex: 2 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.home-container .notes-body .note-time {
+  text-align: center;
+  margin: 5px;
+  font-size: 14px;
+}
+.home-container .notes-body .note-text {
+  flex: 1;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  resize: none;
+  padding: 5px 1.2em;
+  line-height: 1.3em;
+  font-family: "Open Sans", "Montserrat", sans-serif;
+}
+.home-container .notes-body .note-text::first-line {
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 2em;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,57 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "Notes App",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p src/",
+    "build:watch": "tsc -p src/ -w",
+    "serve": "lite-server -c=bs-config.json",
+    "prestart": "npm run build",
+    "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
+    "pretest": "npm run build",
+    "test": "concurrently \"npm run build:watch\" \"karma start karma.conf.js\"",
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "sass:build": "sass --watch src/app/styles/scss/styles.scss:src/app/styles/css/styles.css"
+  },
+  "dependencies": {
+    "@angular/animations": "^8.2.14",
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
+    "@angular/router": "~3.4.0",
+    "angular-in-memory-web-api": "~0.2.4",
+    "bootstrap": "^4.3.1",
+    "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.13.0",
+    "rxjs": "5.0.1",
+    "sass-loader": "^8.0.0",
+    "systemjs": "0.19.40",
+    "zone.js": "^0.7.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.2.0",
+    "lite-server": "^2.2.2",
+    "typescript": "~2.0.10",
+    "canonical-path": "0.0.2",
+    "tslint": "^3.15.1",
+    "lodash": "^4.16.4",
+    "rimraf": "^2.5.4",
+    "@types/node": "^6.0.46"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saithejagonavaram/notes-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saithejagonavaram/notes-app/issues"
+  },
+  "homepage": "https://github.com/saithejagonavaram/notes-app#readme"
+}
