@@ -1,20 +1,23 @@
-<app-header></app-header>
+<app-header (createNoteEvent)="createNote()" (deleteNoteEvent)="deleteNote()" ></app-header>
 
-<div class="home-container ">
+<div class="home-container">
     
     <div class="notes-sidebar"> 
-            <div class="right" *ngIf="tutorials">
-
-                    <h3>Tutorials</h3>
-                    <ul>
-                        <li *ngFor="let tutorial of tutorials | async">
-                        <a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a>
-                        </li>
-                    </ul>
-            
-        </div>
         
         <ul>
+                <li *ngFor="let note of notes"
+                [class.active]="note === selectedNote"
+                (click)="onSelect(note)">
+                        <div class="note-item">
+                            <p class="note-title">{{note.title}}</p>
+                            <div class="note-additional-content">
+                                <span class="note-time-stamp">{{note.editedTime}} </span>
+                                <span class="note-content">{{note.description}}</span>
+                            </div>
+                        </div>
+        
+                    </li>
+
             <li>
                 <div class="note-item">
                     <p class="note-title">This is an example notation of the text</p>
@@ -59,6 +62,6 @@
     </div>
     <div class="notes-body">
         <div class="note-time"> <span> November 16, 2019 at 4:52 PM </span> </div>
-        <textarea class="note-text"></textarea>
+        <textarea [(ngModel)]="selectedNote.description" class="note-text"></textarea>
     </div>
 </div>
