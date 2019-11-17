@@ -1,24 +1,24 @@
-import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppComponent }  from './app.component';
-import { HeaderComponent } from './components/Header/header.component';
-import { HomeComponent } from './components/Home/home.component';
+import { HttpModule } from '@angular/http';
 
-
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  imports:      [ 
-    BrowserModule, 
-    AppRoutingModule ,
-    FormsModule
-],
-  declarations: [ AppComponent, HeaderComponent, HomeComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule { 
-
-  constructor(){
-  }
-}
+export class AppModule { }

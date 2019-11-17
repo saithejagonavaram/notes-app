@@ -1,23 +1,53 @@
-<app-header [showSideBar]="showSideBar" [filtering]="filtering" [newNoteOpened]="newNoteOpened" (toggleSideBarEvent)="toggleSideBar()" (stopSearchEvent)="stopSearchNotes()" (searchEvent)="searchNotes($event)" (createNoteEvent)="createNote()" (deleteNoteEvent)="deleteNote()" ></app-header>
+<app-header
+    [showSideBar]="showSideBar"
+    [filtering]="filtering"
+    [newNoteOpened]="newNoteOpened"
+    (toggleSideBarEvent)="toggleSideBar()"
+    (stopSearchEvent)="stopSearchNotes()"
+    (searchEvent)="searchNotes($event)"
+    (createNoteEvent)="createNote()"
+    (deleteNoteEvent)="deleteNote()"></app-header>
 
 <div class="home-container">
-    <div [class.hidden]="showSideBar === false" [class.show]="showSideBar" class="notes-sidebar"> 
+    <div
+        [class.hidden]="showSideBar === false"
+        [class.show]="showSideBar"
+        class="notes-sidebar">
         <ul>
-                <li *ngFor="let note of notes"
+            <li
+                *ngFor="let note of notes"
                 [class.active]="note === selectedNote"
                 (click)="onSelect(note)">
-                        <div class="note-item">
-                            <p class="note-title">{{note.title}}</p>
-                            <div class="note-additional-content">
-                                <span class="note-time-stamp">{{note.relativeTimeStamp}} </span>
-                                <span class="note-content">{{note.brief}}</span>
-                            </div>
-                        </div>
-                    </li>
+                <div class="note-item">
+                    <p class="note-title">{{note.title}}</p>
+                    <div class="note-additional-content">
+                        <span class="note-time-stamp">{{note.relativeTimeStamp}}
+                        </span>
+                        <span class="note-content">{{note.brief}}</span>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="notes-body">
-        <div class="note-time"> <span> {{selectedNote.mainTimeStamp}} </span> </div>
-        <textarea #notetext (keyup)="noteContentChanged(selectedNote)" [(ngModel)]="selectedNote.content" class="note-text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+        <div *ngIf="notes.length > 0" class="note-time">
+            <span>
+                {{selectedNote.mainTimeStamp}}
+            </span>
+        </div>
+        <textarea
+            [class.hidden]="notes.length === 0"
+            #notetext
+            (keyup)="noteContentChanged(selectedNote)"
+            [(ngModel)]="selectedNote.content"
+            class="note-text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"></textarea>
+
+            <div *ngIf="notes.length == 0 && !filtering" class="img-container">
+                <img src="../../../assets/images/home-pin-img.jpeg"/>
+            </div>
     </div>
 </div>

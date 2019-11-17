@@ -1,0 +1,185 @@
+
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Open Sans', 'Montserrat', sans-serif !important;
+}
+
+.home-container {
+  height: calc(100vh - 40px);
+  display: flex;
+  .notes-sidebar {
+
+    flex: 1 1 auto;
+      height: 100%;
+      // overflow: hidden;
+     
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      
+      &.hidden {
+          max-width: 0px;
+      }
+      &.show {
+          max-width: 250px;
+      }
+
+      @media screen and (max-width: $break-medium) {
+         
+      
+       
+          &.show {
+              max-width: 150px;
+          }
+      }
+
+      @media screen and (max-width: $break-xm) {
+         
+     
+          // position: absolute;
+          // height: 100%;
+         
+          &.show {
+              max-width: 100px;
+          }
+
+      }
+    
+      ul {
+          height: 100%;
+          overflow-y: scroll;
+          list-style-type:none;
+          padding: 0;
+          margin: 0;
+          background-color: #fbfbf8;
+          li {
+              // border-bottom: 1px solid $primary-grey;
+              padding: 10px 10px 10px 20px;
+              position: relative;
+              // height: 20%;
+              cursor: pointer;
+              background-color: #fbfbf8;
+
+              @media screen and (max-width: $break-xm) {
+                  
+                  padding: 5px;
+                  
+              }
+
+              &.active {
+                  background-color: rgba(255, 177, 62, 0.7882352941);
+
+                  &:after {
+                      display: none;
+                  }
+              }
+
+              &:after {
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  border-bottom: 1px solid $primary-grey;
+                  width: 100%;
+              }
+              p{
+                  margin: 0;
+              }
+
+              .note-item {
+                  .note-title {
+                      font-weight: bold;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      font-size: .9em;
+                      margin: 3px 0;
+                  }
+                  .note-additional-content {
+                   
+                      // display: flex;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      font-size: .8em;
+                      margin: 3px 0;
+
+                      @media screen and (max-width: $break-xm) {
+                  
+                          white-space: unset;
+                  
+                      }
+                     
+
+                      .note-time-stamp {
+                          flex:2;
+                          font-weight: 300;
+                          margin-right: 5px;
+                      }
+                      .note-content {
+                          flex:5;
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          color: #717171
+                      }
+                  }
+
+              }
+
+          }
+      }
+  }
+
+  .notes-body {
+      // width:74%;
+      flex: 2 1 auto;
+      // display: inline-block;
+      display: flex;
+      flex-direction: column;
+      
+      .note-time {
+          // flex:1;
+          text-align: center;
+          margin: 5px;
+          font-size: .8em;
+      }
+      .note-text {
+          flex:1;
+          // width: 100%;
+          // height: 100%;
+          font-size: 1em;
+          border: none;
+          outline: none;
+          text-decoration: none;
+          resize: none;
+          padding: 5px 1.2em;
+          line-height: 1.3em;
+          font-family: 'Open Sans', 'Montserrat', sans-serif;
+        
+          &.hidden{
+            opacity: 0;
+          }
+
+          &::first-line{
+              font-weight: bold;
+              font-size: 17px;
+              line-height: 2em;
+              
+          }
+      }
+
+      .img-container{
+          position: absolute;
+
+          img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+          }
+      }
+  }
+
+}
+
+

@@ -1,65 +1,61 @@
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
-// import { Logger } from '../../../services/logger/logger.service';
-// import { AppConfig } from '../../../app.config';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
-// const log = new Logger('HeaderComponent');
-
-@Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html'
-})
+@Component({selector: 'app-header', templateUrl: './header.component.html'})
 export class HeaderComponent implements OnInit {
 
-  searchInput:string = '';
+    searchInput : string = '';
 
-  @Output() createNoteEvent = new EventEmitter<null>();
-  @Output() deleteNoteEvent = new EventEmitter<null>();
-  @Output() searchEvent = new EventEmitter<string>();
-  @Output() stopSearchEvent = new EventEmitter<null>();
-  @Output() toggleSideBarEvent = new EventEmitter<null>();
+    @Output()createNoteEvent = new EventEmitter < null > ();
+    @Output()deleteNoteEvent = new EventEmitter < null > ();
+    @Output()searchEvent = new EventEmitter < string > ();
+    @Output()stopSearchEvent = new EventEmitter < null > ();
+    @Output()toggleSideBarEvent = new EventEmitter < null > ();
 
-  @Input() newNoteOpened: boolean;
-  @Input() filtering: boolean;
-  @Input() showSideBar:boolean;
-  constructor() {
+    @Input()newNoteOpened : boolean;
+    @Input()filtering : boolean;
+    @Input()showSideBar : boolean;
+    constructor() {}
 
-  }
+    ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  searchNotes(){
-    // console.log('this.searchInput', this.searchInput);
-    if(this.searchInput.trim().length >0 ){
-      this.searchEvent.emit(this.searchInput);
-    }else {
-      console.log('stopping search else');
-      this.stopSearchNotes();
-    }
-    
-  }
-  toggleSideBar(){
-    this.toggleSideBarEvent.emit(null);
-  }
-
-  stopSearchNotes(){
-    this.searchInput = '';
-    this.stopSearchEvent.emit(null);
-  }
-
-  deleteNote() {
-    this.deleteNoteEvent.emit(null);
-  }
-  createNote() {
-    if(!this.newNoteOpened) {
-
-        if(this.filtering){
-          this.stopSearchNotes();
+    searchNotes() {
+        if (this.searchInput.trim().length > 0) {
+            this
+                .searchEvent
+                .emit(this.searchInput);
+        } else {
+            this.stopSearchNotes();
         }
-      this.createNoteEvent.emit(null);
+
     }
-  }
+    toggleSideBar() {
+        this
+            .toggleSideBarEvent
+            .emit(null);
+    }
 
+    stopSearchNotes() {
+        this.searchInput = '';
+        this
+            .stopSearchEvent
+            .emit(null);
+    }
 
+    deleteNote() {
+        this
+            .deleteNoteEvent
+            .emit(null);
+    }
+    createNote() {
+        if (!this.newNoteOpened) {
+
+            if (this.filtering) {
+                this.stopSearchNotes();
+            }
+            this
+                .createNoteEvent
+                .emit(null);
+        }
+    }
 
 }

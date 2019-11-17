@@ -1,33 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title>Notate - Note Making App</title>
-    <base href="/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="./app/styles/css/styles.css">
+<head>
 
-    <!-- Polyfill(s) for older browsers -->
+  <title>Notate - Note Making App</title>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <script src="node_modules/core-js/client/shim.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.19.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.js" integrity="sha256-di30dL7N9597Q8UApQWE7AIjWlR2hbVHreqxh7NiX4I=" crossorigin="anonymous"></script>
+  <style>
+    .nb-spinner {
+      width: 75px;
+      height: 75px;
+      margin: 0;
+      background: transparent;
+      border-top: 4px solid #009688;
+      border-right: 4px solid transparent;
+      border-radius: 50%;
+      -webkit-animation: 1s spin linear infinite;
+      animation: 1s spin linear infinite;
+      top: 30%;
+      position: absolute;
+      left: 50%;
+    }
 
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    -webkit-@keyframes spin {
+      -webkit-from {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      -webkit-to {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-    <script src="systemjs.config.js"></script>
+    @-webkit-keyframes spin {
+      from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-    <!-- <script src=""></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.19.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.js" integrity="sha256-di30dL7N9597Q8UApQWE7AIjWlR2hbVHreqxh7NiX4I=" crossorigin="anonymous"></script>
-    <script>window.__theme = 'bs4';</script>
-    <script>
-      System.import('main.js').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-
-  <body>
-    <my-app>Loading AppComponent content here ...</my-app>
-  </body>
+    @keyframes spin {
+      from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <app-root>
+      <div>
+          <div class="nb-spinner"></div>
+        </div>
+  </app-root>
+</body>
 </html>

@@ -1,15 +1,10 @@
 <div class="dark">
-  <nav class="navbar navbar-expand-lg navbar-fixed-top custom-nav">
-      <!-- <span class="nav-title">
-          {{title}}
-      </span> -->
-          <!-- <i  class="fa fa-user"></i> -->
-
-          <div (click)="toggleSideBar()" class="nav-icon sidebar-slide-icon">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top custom-nav">
+        <div (click)="toggleSideBar()" class="nav-icon sidebar-slide-icon">
             <i class="fas fa-window-maximize"></i>
-          </div>
+        </div>
 
-          <div class="nav-icon" (click)="deleteNote()" >
+        <div class="nav-icon" (click)="deleteNote()">
             <i class="fas fa-trash-alt"></i>
         </div>
 
@@ -19,7 +14,12 @@
 
         <div class="notes-search">
             <input (keyup)="searchNotes()" [(ngModel)]="searchInput" placeholder="Search"/>
-            <span *ngIf="searchInput.trim().length > 0" (click)="stopSearchNotes()" class="search-clear"> <i class="fas fa-times-circle"></i> </span>
+            <span
+                *ngIf="searchInput.trim().length > 0"
+                (click)="stopSearchNotes()"
+                class="search-clear">
+                <i class="fas fa-times-circle"></i>
+            </span>
         </div>
-  </nav>
+    </nav>
 </div>
