@@ -1,7 +1,7 @@
-<app-header [filtering]="filtering" [newNoteOpened]="newNoteOpened" (stopSearchEvent)="stopSearchNotes()" (searchEvent)="searchNotes($event)" (createNoteEvent)="createNote()" (deleteNoteEvent)="deleteNote()" ></app-header>
+<app-header [showSideBar]="showSideBar" [filtering]="filtering" [newNoteOpened]="newNoteOpened" (toggleSideBarEvent)="toggleSideBar()" (stopSearchEvent)="stopSearchNotes()" (searchEvent)="searchNotes($event)" (createNoteEvent)="createNote()" (deleteNoteEvent)="deleteNote()" ></app-header>
 
 <div class="home-container">
-    <div class="notes-sidebar"> 
+    <div [class.hidden]="showSideBar === false" [class.show]="showSideBar" class="notes-sidebar"> 
         <ul>
                 <li *ngFor="let note of notes"
                 [class.active]="note === selectedNote"

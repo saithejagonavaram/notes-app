@@ -41,7 +41,7 @@
 
     .notes-search{
         float: right;
-        margin-top: 6px;
+        margin-top: 5px;
         position: relative;
         input {
             height: 20px;
@@ -51,9 +51,18 @@
             text-decoration: none;
             outline: none;
             padding: 5px 20px 5px 5px;
-            font-size: 15px;
+            font-size: .8em;
             font-family: 'Open Sans', 'Montserrat', sans-serif !important;
 
+            @media screen and (max-width: $break-xm) {
+                width:200px;
+            }
+            @media screen and (max-width: $break-small) {
+                width:130px;
+            }
+            @media screen and (max-width: $break-xs) {
+                width:100px;
+            }
 
         }
 

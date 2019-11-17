@@ -16,8 +16,11 @@ export class HeaderComponent implements OnInit {
   @Output() deleteNoteEvent = new EventEmitter<null>();
   @Output() searchEvent = new EventEmitter<string>();
   @Output() stopSearchEvent = new EventEmitter<null>();
+  @Output() toggleSideBarEvent = new EventEmitter<null>();
+
   @Input() newNoteOpened: boolean;
   @Input() filtering: boolean;
+  @Input() showSideBar:boolean;
   constructor() {
 
   }
@@ -34,6 +37,9 @@ export class HeaderComponent implements OnInit {
       this.stopSearchNotes();
     }
     
+  }
+  toggleSideBar(){
+    this.toggleSideBarEvent.emit(null);
   }
 
   stopSearchNotes(){

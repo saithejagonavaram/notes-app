@@ -6,10 +6,6 @@ import {
 } from '@angular/core';
 
 import {
-  Router
-} from '@angular/router';
-
-import {
   Logger
 } from '../../services/logger/logger.service';
 import {
@@ -96,6 +92,8 @@ export class HomeComponent implements AfterViewInit {
   filtering:boolean  = false;
   selectedNote: Note;
 
+  showSideBar =  true;
+
   newNoteOpened:boolean = false;
   noteId:string = uuid.v4();
   newNoteData: Note = {
@@ -109,7 +107,6 @@ export class HomeComponent implements AfterViewInit {
   }
 
   constructor(
-      private router: Router
     ) {
       // console.log('this.getLocalStorage()',this.getLocalStorage());
       if(this.getLocalStorage() !== null){
@@ -348,6 +345,11 @@ export class HomeComponent implements AfterViewInit {
       this.selectedNote = this.notes[0];
       
       this.filtering = false;
+    }
+
+    toggleSideBar(){
+      this.showSideBar = !this.showSideBar;
+      // console.log('this.showSideBar', this.showSideBar);
     }
 
   }

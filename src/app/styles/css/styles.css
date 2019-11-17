@@ -31,7 +31,7 @@
 }
 .custom-nav .notes-search {
   float: right;
-  margin-top: 6px;
+  margin-top: 5px;
   position: relative;
 }
 .custom-nav .notes-search input {
@@ -42,8 +42,23 @@
   text-decoration: none;
   outline: none;
   padding: 5px 20px 5px 5px;
-  font-size: 15px;
+  font-size: 0.8em;
   font-family: "Open Sans", "Montserrat", sans-serif !important;
+}
+@media screen and (max-width: 500px) {
+  .custom-nav .notes-search input {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .custom-nav .notes-search input {
+    width: 130px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .custom-nav .notes-search input {
+    width: 100px;
+  }
 }
 .custom-nav .notes-search .search-clear {
   top: 4px;
@@ -65,7 +80,25 @@ body {
 .home-container .notes-sidebar {
   flex: 1 1 auto;
   height: 100%;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.home-container .notes-sidebar.hidden {
+  max-width: 0px;
+}
+.home-container .notes-sidebar.show {
   max-width: 250px;
+}
+@media screen and (max-width: 768px) {
+  .home-container .notes-sidebar.show {
+    max-width: 150px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .home-container .notes-sidebar.show {
+    max-width: 100px;
+  }
 }
 .home-container .notes-sidebar ul {
   height: 100%;
@@ -80,6 +113,11 @@ body {
   position: relative;
   cursor: pointer;
   background-color: #fbfbf8;
+}
+@media screen and (max-width: 500px) {
+  .home-container .notes-sidebar ul li {
+    padding: 5px;
+  }
 }
 .home-container .notes-sidebar ul li.active {
   background-color: rgba(255, 177, 62, 0.7882352941);
@@ -102,15 +140,20 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 0.9em;
   margin: 3px 0;
 }
 .home-container .notes-sidebar ul li .note-item .note-additional-content {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 0.8em;
   margin: 3px 0;
+}
+@media screen and (max-width: 500px) {
+  .home-container .notes-sidebar ul li .note-item .note-additional-content {
+    white-space: unset;
+  }
 }
 .home-container .notes-sidebar ul li .note-item .note-additional-content .note-time-stamp {
   flex: 2;
@@ -132,11 +175,11 @@ body {
 .home-container .notes-body .note-time {
   text-align: center;
   margin: 5px;
-  font-size: 14px;
+  font-size: 0.8em;
 }
 .home-container .notes-body .note-text {
   flex: 1;
-  font-size: 15px;
+  font-size: 1em;
   border: none;
   outline: none;
   text-decoration: none;
