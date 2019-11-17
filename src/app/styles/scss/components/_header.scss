@@ -42,19 +42,36 @@
     .notes-search{
         float: right;
         margin-top: 6px;
-
+        position: relative;
         input {
             height: 20px;
+            width:250px;
             border: none;
             border-radius: 4px;
             text-decoration: none;
             outline: none;
-            padding: 5px;
+            padding: 5px 20px 5px 5px;
             font-size: 15px;
             font-family: 'Open Sans', 'Montserrat', sans-serif !important;
 
 
         }
+
+        .search-clear{
+            // width: 19px;
+            top: 4px;
+            color: black;
+            // height: 20px;
+            position: absolute;
+            right: 4px;
+            cursor: pointer;
+            // background: black;
+            // border-radius: 11px;
+            i{
+
+            }
+        }
+
     }
   
 }

@@ -10,10 +10,14 @@ import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  searchInput:string = '';
 
   @Output() createNoteEvent = new EventEmitter<null>();
   @Output() deleteNoteEvent = new EventEmitter<null>();
+  @Output() searchEvent = new EventEmitter<string>();
+  @Output() stopSearchEvent = new EventEmitter<null>();
   @Input() newNoteOpened: boolean;
+  @Input() filtering: boolean;
   constructor() {
 
   }
@@ -21,15 +25,35 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchNotes(){
+    // console.log('this.searchInput', this.searchInput);
+    if(this.searchInput.trim().length >0 ){
+      this.searchEvent.emit(this.searchInput);
+    }else {
+      console.log('stopping search else');
+      this.stopSearchNotes();
+    }
+    
+  }
+
+  stopSearchNotes(){
+    this.searchInput = '';
+    this.stopSearchEvent.emit(null);
+  }
+
   deleteNote() {
     this.deleteNoteEvent.emit(null);
   }
   createNote() {
     if(!this.newNoteOpened) {
+
+        if(this.filtering){
+          this.stopSearchNotes();
+        }
       this.createNoteEvent.emit(null);
     }
-   
-
   }
+
+
 
 }

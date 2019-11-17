@@ -18,7 +18,8 @@
         </div>
 
         <div class="notes-search">
-            <input placeholder="Search"/>
+            <input (keyup)="searchNotes()" [(ngModel)]="searchInput" placeholder="Search"/>
+            <span *ngIf="searchInput.trim().length > 0" (click)="stopSearchNotes()" class="search-clear"> <i class="fas fa-times-circle"></i> </span>
         </div>
   </nav>
 </div>

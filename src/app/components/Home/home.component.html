@@ -1,9 +1,7 @@
-<app-header [newNoteOpened]="newNoteOpened" (createNoteEvent)="createNote()" (deleteNoteEvent)="deleteNote()" ></app-header>
+<app-header [filtering]="filtering" [newNoteOpened]="newNoteOpened" (stopSearchEvent)="stopSearchNotes()" (searchEvent)="searchNotes($event)" (createNoteEvent)="createNote()" (deleteNoteEvent)="deleteNote()" ></app-header>
 
 <div class="home-container">
-    
     <div class="notes-sidebar"> 
-        
         <ul>
                 <li *ngFor="let note of notes"
                 [class.active]="note === selectedNote"
@@ -11,57 +9,15 @@
                         <div class="note-item">
                             <p class="note-title">{{note.title}}</p>
                             <div class="note-additional-content">
-                                <span class="note-time-stamp">{{note.editedTime}} </span>
+                                <span class="note-time-stamp">{{note.relativeTimeStamp}} </span>
                                 <span class="note-content">{{note.brief}}</span>
                             </div>
                         </div>
-        
                     </li>
-
-            <li>
-                <div class="note-item">
-                    <p class="note-title">This is an example notation of the text</p>
-                    <div class="note-additional-content">
-                        <span class="note-time-stamp"> 8:50 PM </span>
-                        <span class="note-content"> NO additonal content recommended by the</span>
-                    </div>
-                </div>
-
-            </li>
-            <li>
-                <div class="note-item">
-                    <p class="note-title">Note1 is written by me </p>
-                    <div class="note-additional-content">
-                        <span class="note-time-stamp"> 8:50 PM </span>
-                        <span class="note-content"> Didnt had a glimpse of doubt jfgj jgfhgfhfhfhgfh ffh fhgfg </span>
-                    </div>
-                </div>
-
-            </li>
-            <li>
-                <div class="note-item">
-                    <p class="note-title">Note1 j jfj fjgfjgf jg jgfj gf jgfjg jgfj g </p>
-                    <div class="note-additional-content">
-                        <span class="note-time-stamp"> 8:50 PM </span>
-                        <span class="note-content"> Didnt had a glimpse of doubt jfgj jgfhgfhfhfhgfh ffh fhgfg </span>
-                    </div>
-                </div>
-
-            </li>
-            <li>
-                <div class="note-item">
-                    <p class="note-title">Logger </p>
-                    <div class="note-additional-content">
-                        <span class="note-time-stamp"> 8:50 PM </span>
-                        <span class="note-content"> Didnt had a glimpse of doubt jfgj jgfhgfhfhfhgfh ffh fhgfg </span>
-                    </div>
-                </div>
-
-            </li>
         </ul>
     </div>
     <div class="notes-body">
-        <div class="note-time"> <span> November 16, 2019 at 4:52 PM </span> </div>
+        <div class="note-time"> <span> {{selectedNote.mainTimeStamp}} </span> </div>
         <textarea #notetext (keyup)="noteContentChanged(selectedNote)" [(ngModel)]="selectedNote.content" class="note-text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
     </div>
 </div>

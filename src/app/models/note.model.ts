@@ -1,8 +1,9 @@
 export interface Note {
-  id: number;
+  id: string;
   title: string;
-  editedTime: string;
-  editedDate: string;
+  mainTimeStamp: string;
+  relativeTimeStamp: string;
   brief: string;
   content: string;
+  timeStamp: string;
 };
