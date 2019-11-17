@@ -3,5 +3,6 @@ export interface Note {
   title: string;
   editedTime: string;
   editedDate: string;
-  description: string;
+  brief: string;
+  content: string;
 };
